@@ -1,9 +1,11 @@
 import { Box, IconButton, Menu, MenuItem, Typography } from "@mui/material";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Page } from "../../../interfaces/page.interface";
+import router from "../../Routes";
 
 interface MobileNavigationProps {
-  pages: string[];
+  pages: Page[];
 }
 
 const MobileNavigation = ({ pages }: MobileNavigationProps) => {
@@ -47,8 +49,14 @@ const MobileNavigation = ({ pages }: MobileNavigationProps) => {
           }}
         >
           {pages.map((page) => (
-            <MenuItem key={page} onClick={handleCloseNavMenu}>
-              <Typography textAlign="center">{page}</Typography>
+            <MenuItem
+              key={page.title}
+              onClick={() => {
+                handleCloseNavMenu();
+                router.navigate(page.path);
+              }}
+            >
+              <Typography textAlign="center">{page.title}</Typography>
             </MenuItem>
           ))}
         </Menu>
