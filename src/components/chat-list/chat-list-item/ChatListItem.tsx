@@ -7,7 +7,10 @@ import {
   Typography,
 } from "@mui/material";
 
-const ChatListItem = () => {
+interface ChatListProps {
+  name?: string | null;
+}
+const ChatListItem = ({ name }: ChatListProps) => {
   return (
     <>
       <ListItem alignItems="flex-start">
@@ -15,7 +18,7 @@ const ChatListItem = () => {
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
         </ListItemAvatar>
         <ListItemText
-          primary="Brunch this weekend?"
+          primary={name}
           secondary={
             <>
               <Typography
