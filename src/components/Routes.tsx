@@ -1,5 +1,6 @@
 import Login from "./auth/Login";
 import Signup from "./auth/Signup";
+import Chat from "./chat/Chat";
 import Home from "./home/Home";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/chats/:_id",
+    element: <Chat />,
   },
 ]);
 
