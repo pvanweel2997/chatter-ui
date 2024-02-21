@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import { useState } from "react";
 import ChatListItem from "./chat-list-item/ChatListItem";
 import { Divider, List, Stack } from "@mui/material";
 import ChatListHeader from "./chat-list-header/ChatListHeader";

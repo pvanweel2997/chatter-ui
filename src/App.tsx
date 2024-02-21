@@ -23,7 +23,7 @@ const darkTheme = createTheme({
 
 const App = () => {
   const { path } = usePath();
-  const showChatList = path == "/" || path.includes("chats");
+  const showChatList = path === "/" || path.includes("chats");
   return (
     <ApolloProvider client={client}>
       <ThemeProvider theme={darkTheme}>
