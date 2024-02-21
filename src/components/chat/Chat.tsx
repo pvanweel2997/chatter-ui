@@ -14,10 +14,10 @@ import SendIcon from "@mui/icons-material/Send";
 import { useGetMessages } from "../../hooks/useGetMessages";
 
 const Chat = () => {
-  const [createMessage] = useCreateMessage();
   const params = useParams();
   const [message, setMessage] = useState("");
   const chatId = params._id!;
+  const [createMessage] = useCreateMessage(chatId);
   const { data } = useGetChat({ _id: chatId });
   const { data: messages } = useGetMessages({ chatId });
 
