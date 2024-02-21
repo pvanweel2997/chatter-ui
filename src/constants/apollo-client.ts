@@ -5,6 +5,7 @@ import excludedRoutes from "./excluded-routes";
 import { onLogout } from "../utils/logout";
 
 const logoutLink = onError((error) => {
+  console.log("=== error", error);
   if (
     error.graphQLErrors?.length &&
     (error.graphQLErrors[0].extensions.originalError as any).statusCode === 401
