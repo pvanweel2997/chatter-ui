@@ -15,6 +15,7 @@ import { useCreateMessage } from "../../hooks/useCreateMessage";
 import { useEffect, useRef, useState } from "react";
 import SendIcon from "@mui/icons-material/Send";
 import { useGetMessages } from "../../hooks/useGetMessages";
+import { useMessageCreated } from "../../hooks/useMessageCreated";
 
 const Chat = () => {
   const params = useParams();
@@ -23,10 +24,13 @@ const Chat = () => {
   const [createMessage] = useCreateMessage(chatId);
   const { data } = useGetChat({ _id: chatId });
   const { data: messages } = useGetMessages({ chatId });
+  const { data: latestMessage } = useMessageCreated({ chatId });
   const divRef = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
 
   const scrollToBottom = () => divRef.current?.scrollIntoView();
+
+  console.log("=== latestMessage", latestMessage);
 
   useEffect(() => {
     setMessage("");
