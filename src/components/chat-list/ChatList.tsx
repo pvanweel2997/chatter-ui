@@ -10,6 +10,7 @@ const ChatList = () => {
   const [chatListAddVisible, setChatListAddVisible] = useState(false);
   const [selectedChatId, setSelectedChatId] = useState("");
   const { data } = useGetChats();
+  console.log("=== data in:", data);
   const { path } = usePath();
 
   useEffect(() => {
