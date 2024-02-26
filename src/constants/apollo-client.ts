@@ -8,14 +8,6 @@ import { createClient } from "graphql-ws";
 import { getMainDefinition } from "@apollo/client/utilities";
 
 const logoutLink = onError((error) => {
-  const hello = error.graphQLErrors;
-  if (hello) {
-    if (hello.length > 0) {
-      console.log("=== error", hello[0].message);
-    }
-  }
-
-  console.log("=== error", error);
   if (
     error.graphQLErrors?.length &&
     (error.graphQLErrors[0].extensions?.originalError as any)?.statusCode ===
